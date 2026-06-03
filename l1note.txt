@@ -22,6 +22,49 @@
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
+=> Mongodb Atlas 
+
+    DATABASE > Clusters > Connect > Compass > 
+
+    = Create User Account 
+        Security > Security Quickstart 
+        Username = user3 
+        Password = 09769879625
+
+    = Allow Your IP Address 
+        SECURITY > Database & Network Access > IP Address List > ADD IP Address 
+        Add current IP Address (or) Allow From Anywhere . (0.0.0.0/0)  (esay for learing) 
+
+    = Mongodb Compass ( your local computer app) 
+        open MongoDB Compass 
+    
+    Add new connection 
+    mongodb+srv://user3:09422042225@crm.2vqfnzz.mongodb.net/ 
+    Save & Connect 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+=> Mongodb Atlas (by )
+
+    DATABASE > Clusters > Connect > Shell 
+    
+    = Open Local Terminal 
+        ctr+alt+t 
+        mongosh --version
+
+        show databases  or   show dbs 
+        use nodejsbatch2 
+
+        show collections 
+
+        db.getCollectionInfos()
+
+        db.post.find({})
+
+        exit
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
      

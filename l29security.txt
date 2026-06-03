@@ -1,0 +1,78 @@
+show databases
+
+=> Authentication & Roles 
+
+=> Create Admin user (no auth yet)
+mongosh
+
+use admin 
+
+db.createUser({
+    user:"rootadmin",
+    pwd:"mongodbcloud123",
+    roles:[{role:"root",db:"admin"}]
+});
+
+exit 
+
+-------------------------------------------------------------------------
+
+=> Enable Authentication (Important) 
+
+= Linux ( edit and config ) 
+
+    sudo nano /etc/mongod.conf 
+
+= Mac ( edit and config ) 
+
+    nano /opt/homebrew/ect/mongod.conf 
+
+= Windows ( edit and config ) 
+
+    C:\Program File\MongoDB\Server\8.2\bin\mongod.cfg
+
+= Uncommand / Add ( remark : text indentation )
+security
+    authorization: enabled
+
+= Restart MongoDB 
+
+    = Linux
+        sudo systemctl restart mongod 
+        sudo systemctl status mongod
+
+    = Max 
+        brew services restart mongodb-community
+        brew services status mongodb-community
+
+    = Windows 
+        net stop MongoDB 
+        net start MongoDB
+        services.msc
+
+-------------------------------------------------------------------------
+
+=> Connect with Authentication 
+
+mongosh
+show databases // denyed 
+exit 
+
+mongosh -u rootadmin -p --authorizationDatabase admin 
+mongodbcloud123 
+
+show databases      // allowed
+use dbvalidation    // allowed
+show collections    // allowed
+exit 
+
+mongosh -u rootadmin -p 
+mongodbcloud123
+
+show databases     // allowed
+use dbvalidation   // allowed
+show collections   // allowed
+exit 
+
+-------------------------------------------------------------------------
+
